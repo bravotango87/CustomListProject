@@ -94,7 +94,7 @@ namespace CustomListTests
             testList.Add(itemToAdd);
             testList.Add(itemToAddTwo);
             testList.Add(itemToAddThree);
-            actual = testList[3];
+            actual = testList[2];
 
 
             // assert
@@ -110,10 +110,10 @@ namespace CustomListTests
             // arrange 
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 1;
-            int itemToAddTwo = 2;
-            int actual;
-            int expected = 4;
+            int itemToAdd = 3;
+            int itemToAddTwo = 5;
+            
+            int expected = 2;
 
             // act
 
@@ -121,9 +121,9 @@ namespace CustomListTests
             testList.Add(itemToAddTwo);
             actual = testList.Count;
 
-            // assert
+           // assert
 
-            Assert.AreEqual(expected, actual);
+           Assert.AreEqual(expected, actual);
 
         }
         
