@@ -47,5 +47,88 @@ namespace CustomListTests
 
         // what happens if you add more items than the initial Capacity of the CustomList?
 
+          // Add 3 Add Test Methods
+
+
+          [TestMethod]
+          public void Add_AddingMultipleValuesToEmptyCustomList_ValueOfZeroIndexStaysTheSame()
+          {
+           // arrange
+           CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 5;
+            int itemToAddTwo = 7;
+            int expected = 5;
+            int actual;
+
+
+           // act
+            testList.Add(itemToAdd);
+            testList.Add(itemToAddTwo);
+            actual = testList[0];
+
+
+
+
+           // assert
+
+           Assert.AreEqual(expected, actual);
+
+          }
+
+          [TestMethod]
+
+          public void Add_AddingMultipleValuesToEmptyCustomList_ValueOfThreeIndexStaysTheSame()
+          {
+            // arrange
+
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 9;
+            int itemToAddTwo = 2;
+            int itemToAddThree = 4;
+            int expected = 4;
+            int actual;
+
+
+            // act
+
+            testList.Add(itemToAdd);
+            testList.Add(itemToAddTwo);
+            testList.Add(itemToAddThree);
+            actual = testList[3];
+
+
+            // assert
+
+            Assert.AreEqual(expected, actual);
+
+          }
+
+          [TestMethod]
+
+          public void Add_AddingMultipleValuesToEmptyCustomList_CheckCapacity()
+        {
+            // arrange 
+
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 1;
+            int itemToAddTwo = 2;
+            int actual;
+            int expected = 4;
+
+            // act
+
+            testList.Add(itemToAdd);
+            testList.Add(itemToAddTwo);
+            actual = testList.Count;
+
+            // assert
+
+            Assert.AreEqual(expected, actual);
+
+        }
+        
+           
+
     }
+
 }
