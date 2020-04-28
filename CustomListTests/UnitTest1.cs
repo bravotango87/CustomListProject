@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Sandbox;
+using UserList;
 
 namespace CustomListTests
 {
