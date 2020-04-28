@@ -232,14 +232,28 @@ namespace CustomListTests
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 5;
+            int itemToAddTwo = 7;
+            int itemToAddThree = 8;
+            int expected = 7;
+            int actual;
+
+
 
 
             // act
 
-            int itemToAdd = 10;
-            int itemToAddTwo = 12;
-            int itemToAddThree = 18;
-            int itemToRemove = 12;
+            testList.Add(itemToAdd);
+            testList.Add(itemToAddTwo);
+            testList.Add(itemToAddThree);
+            testList.Remove(itemToAdd);
+
+            actual = testList[0];
+
+
+
+
+
 
             // assert
 
@@ -249,27 +263,38 @@ namespace CustomListTests
 
         [TestMethod]
 
-        public void Remove_RemovingOneValueToEmptyCustomList_CountOfCustomListIncrements()
+        public void Remove_RemovingOneValueToEmptyCustomList_CountOfCustomListDecrease()
         {
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 10;
+            int itemToAddTwo = 12;
+            int itemToAddThree = 32;
+            int itemToAddFour = 45;
+
+            int expected = 3;
+            int actual;
+
 
 
 
             // act
 
-            int itemToAdd = 10;
-            int itemToAddTwo = 12;
-            int itemToAddThree = 15;
-            int itemToRemove = 12;
+            testList.Add(itemToAdd);
+            testList.Add(itemToAddTwo);
+            testList.Add(itemToAddThree);
+            testList.Add(itemToAddFour);
+            testList.Remove(itemToAddThree);
 
-
+            actual = testList.Count;
 
             // assert
 
             Assert.AreEqual(expected, actual);
         }
+
+
         [TestMethod]
 
         public void Remove_RemovingMultipleValuesFromCustomList_ValueOfZeroIndexStaysTheSame()
@@ -280,7 +305,10 @@ namespace CustomListTests
             int itemToAdd = 32;
             int itemToAddTwo = 18;
             int itemToAddThree = 22;
-            int expected = 22;
+            int itemToAddFour = 33;
+            int itemToAddFive = 35;
+            int itemToAddSix = 45;
+            int expected = 32;
             int actual;
 
             // act
@@ -288,25 +316,34 @@ namespace CustomListTests
             testList.Add(itemToAdd);
             testList.Add(itemToAddTwo);
             testList.Add(itemToAddThree);
+            testList.Add(itemToAddFour);
+            testList.Add(itemToAddFive);
+            testList.Add(itemToAddSix);
+            testList.Remove(itemToAddFour);
+            testList.Remove(itemToAddFive);
+            testList.Remove(itemToAddSix);
            
-            actual = testList[2];
+            actual = testList[0];
 
             // assert
 
             Assert.AreEqual(expected, actual);
 
         }
+
+        // Write a test where there are duplicate values and it only removes the first value it finds.
+
         [TestMethod]
 
-        public void Remove_RemovingMultipleValuesFromCustomList_ValueOfThreeIndexStaysTheSame()
+        public void Remove_RemovingDuplicateValuesFromCustomList_ValueOfTwoIndexStaysTheSame()
         {
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
             int itemToAdd = 9;
-            int itemToAddTwo = 2;
-            int itemToAddThree = 4;
-            int expected = 4;
+            int itemToAddTwo = 8;
+            int itemToAddThree = 9;
+            int expected = 8;
             int actual;
 
             // act
@@ -314,8 +351,8 @@ namespace CustomListTests
             testList.Add(itemToAdd);
             testList.Add(itemToAddTwo);
             testList.Add(itemToAddThree);
-            testList.Remove(4);
-            actual = testList[2];
+            testList.Remove(itemToAdd);
+            actual = testList[1];
 
             // assert
 
@@ -329,16 +366,29 @@ namespace CustomListTests
             // arrange 
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 3;
-            int itemToAddTwo = 5;
-
-            int expected = 2;
+            int itemToAdd = 9;
+            int itemToAddTwo = 8;
+            int itemToAddThree = 22;
+            int itemToAddFour = 32;
+            int itemToAddFive = 44;
+            int itemToAddSix = 23;
+            int itemToAddSeven = 64;
+            int expected = 8;
+            int actual;
 
             // act
 
             testList.Add(itemToAdd);
             testList.Add(itemToAddTwo);
-            actual = testList.Count;
+            testList.Add(itemToAddThree);
+            testList.Add(itemToAddFour);
+            testList.Add(itemToAddFive);
+            testList.Add(itemToAddSix);
+            testList.Add(itemToAddSeven);
+            testList.Remove(itemToAddSix);
+            testList.Remove(itemToAddSeven);
+            actual = testList.Capacity;
+
 
             // assert
 
