@@ -128,6 +128,71 @@ namespace CustomListTests
 
         }
 
+        // Write a test where you add 5 or more things and check for increased capacity
+
+        [TestMethod]
+
+        public void Add_AddingFiveValuesCheckCapacity()
+        {
+            // arrange
+
+            CustomList<int> testList = new CustomList<int>();
+
+            int itemToAdd = 10;
+            int expected = 8;
+            int actual;
+
+
+            // act
+
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+
+            actual = testList.Capacity;
+
+            // assert
+
+            Assert.AreEqual(expected, actual);
+
+
+        }
+
+        // Write a test where you add 5 or more things and check the count
+
+        [TestMethod]
+
+        public void Add_Adding5ValuesAndCheckCount()
+        {
+            // arrange
+
+            CustomList<int> testList = new CustomList<int>();
+
+            int itemToAdd;
+            int expected = 6;
+            int actual;
+
+
+            // act
+
+            testList.Add(3);
+            testList.Add(5);
+            testList.Add(7);
+            testList.Add(9);
+            testList.Add(12);
+            testList.Add(32);
+
+            actual = testList.Count;
+
+            // assert
+
+            Assert.AreEqual(expected, actual);
+
+        }
+
 
 
         // Remove Test (Add items to list before removing them)
@@ -139,16 +204,14 @@ namespace CustomListTests
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 10;
-            int expected = 10;
-            int actual;
+
 
             // act
 
-            testList.Add(itemToAdd);
-
-            testList.Remove(10);
-            actual = testList[0];
+            int itemToAdd = 10;
+            int itemToAddTwo = 12;
+            int itemToAddThree = 18;
+            int itemToRemove = 12;
 
             // assert
 
@@ -163,19 +226,17 @@ namespace CustomListTests
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 10;
-            int expected = 1;
-            int actual;
+
+
 
             // act
 
-            testList.Add(itemToAdd);
-            testList.Remove(1)
-            actual = testList.Count;
+            int itemToAdd = 10;
+            int itemToAddTwo = 12;
+            int itemToAddThree = 15;
+            int itemToRemove = 12;
 
 
-            testList.Remove(21);
-            actual = testList[0];
 
             // assert
 
@@ -191,6 +252,7 @@ namespace CustomListTests
             int itemToAdd = 32;
             int itemToAddTwo = 18;
             int itemToAddThree = 22;
+            int expected = 22;
             int actual;
 
             // act
@@ -198,7 +260,7 @@ namespace CustomListTests
             testList.Add(itemToAdd);
             testList.Add(itemToAddTwo);
             testList.Add(itemToAddThree);
-            testList.Remove(22);
+           
             actual = testList[2];
 
             // assert
