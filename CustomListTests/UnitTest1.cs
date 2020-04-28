@@ -165,7 +165,7 @@ namespace CustomListTests
 
         [TestMethod]
 
-        public void Add_Adding5ValuesAndCheckCount()
+        public void Add_AddingFiveValuesAndCheckCount()
         {
             // arrange
 
@@ -191,6 +191,34 @@ namespace CustomListTests
 
             Assert.AreEqual(expected, actual);
 
+        }
+        
+        // Write a test where you add 5 or more things and check a value at an index
+
+        [TestMethod]
+
+        public void Add_AddingFiveValuesCheckAtIndex()
+        {
+            // arrange
+
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd;
+            int expected = 32;
+            int actual;
+
+            // act
+
+            testList.Add(24);
+            testList.Add(32);
+            testList.Add(20);
+            testList.Add(32);
+            testList.Add(25);
+
+            actual = testList.index[1];
+
+            // assert
+
+            Assert.AreEqual(expected, actual);
         }
 
 
