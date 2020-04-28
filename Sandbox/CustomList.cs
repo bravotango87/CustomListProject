@@ -6,21 +6,72 @@ using System.Threading.Tasks;
 
 namespace Sandbox
 {
-    public class CustomList<T>
+    public class MyCustomList<T>
     {
-        // member variables (HAS A)
-        private T[] items;
+        // member variables (Has a)
 
-        // constructor (SPAWNER)
-        public CustomList()
+
+        private T[] items;
+        private int count;
+        private int capacity;
+
+
+        public T this[int index]
         {
-            items = new T[4];
+            get
+            {
+                if (index < count && index >= 0)
+                {
+                    return items[index];
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException();
+                }
+
+            }
+            set
+            {
+                items[index] = value;
+            }
         }
 
-        // member methods (CAN DO)
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+        }
+
+        public int Capacity
+        {
+            get
+            {
+                return capacity;
+            }
+        }
+
+        // constructor (Spawner)
+
+        public MyCustomList()
+        {
+            count = 0;
+            capacity = 4;
+            items = new T[capacity];
+        }
+
+        // methods (Can do)
         public void Add(T item)
         {
-
+            items[count] = item;
+            count++;
         }
+
+
+
+
+
+
     }
 }
