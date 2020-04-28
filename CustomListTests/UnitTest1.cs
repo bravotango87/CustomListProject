@@ -126,8 +126,38 @@ namespace CustomListTests
            Assert.AreEqual(expected, actual);
 
         }
-        
-           
+
+
+
+            // Remove Test Add items to list before removing them
+
+           [TestMethod]
+
+           public void Remove_RemovingOneValueFromCustomList_RemainingValueGoesToIndexZero()
+        {
+            // arrange
+
+            CustomList<int> testList = new CustomList<int>();
+            int itemToAdd = 32;
+            int iteamToAddTwo = 12;
+            int actual;
+
+            // act
+
+            testList.Add(iteamToAdd);
+            testList.Add(iteamToAddTwo);
+            testList.Remove(12);
+            actual = testList[1];
+
+            // assert
+
+            Assert.AreEqual(expected, actual);
+        }
+
+
+
+
+
 
     }
 
