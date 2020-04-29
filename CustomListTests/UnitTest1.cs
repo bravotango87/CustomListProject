@@ -35,7 +35,7 @@ namespace CustomListTests
             int actual;
 
             // act
-            testList.Add(itemToAdd);
+            testList.Add(10);
             actual = testList.Count;
 
             // assert

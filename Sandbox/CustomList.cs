@@ -10,7 +10,7 @@ namespace UserList
     {
         // member variables (HAS A)
 
-        
+
 
         private T[] items;
         private int count;
@@ -26,7 +26,7 @@ namespace UserList
             {
                 return count;
             }
-           
+
 
         }
 
@@ -43,7 +43,7 @@ namespace UserList
         // constructor (SPAWNER)
         public CustomList()
         {
-            items = new T[capacity];
+            items = new T[capacity]; // array
             count = 0;
             capacity = 4;
         }
@@ -69,15 +69,37 @@ namespace UserList
                 items[index] = value;
             }
 
-
-
-
-        }
-        
             
 
 
 
-                public void Add(T item)
+
+        }
+
+
+
+        // add an object to an instance of custom-built list class by imitating the C# Add() method.
+
+        public void Add(T item)
+        {
+            items[count] = item;
+            count++;
+
+
+            if (count == capacity) // capacity needs to double to 8
+            {
+                capacity = (capacity * 2);
+
+
+                T[] temporaryArrary; 
+                temporaryArrary = items;
+                items = new T[capacity]; 
+                count++;
+                capacity = 4;
+
+            }
+        }
+    }
+}
      
        
