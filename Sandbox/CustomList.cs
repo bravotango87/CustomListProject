@@ -48,7 +48,7 @@ namespace UserList
             capacity = 4;
         }
 
-        // member methods (CAN DO)
+        // member methods (CAN DO) based of [TestMethod]s
 
         public T this[int index]
         {
