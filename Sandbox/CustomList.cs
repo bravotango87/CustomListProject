@@ -10,11 +10,15 @@ namespace UserList
     {
         // member variables (HAS A)
 
-        // array
+        
 
         private T[] items;
         private int count;
         private int capacity;
+
+
+
+        // properties
 
         public int Count
         {
@@ -22,6 +26,7 @@ namespace UserList
             {
                 return count;
             }
+           
 
         }
 
@@ -38,15 +43,41 @@ namespace UserList
         // constructor (SPAWNER)
         public CustomList()
         {
-            items = new T[4];
+            items = new T[capacity];
             count = 0;
             capacity = 4;
         }
 
         // member methods (CAN DO)
-        public void Add(T item)
+
+        public T this[int index]
         {
+            get
+            {
+                if (index < 0 && index >= capacity)
+                {
+                    return items[index];
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+
+            }
+            set
+            {
+                items[index] = value;
+            }
+
+
+
 
         }
-    }
-}
+        
+            
+
+
+
+                public void Add(T item)
+     
+       
