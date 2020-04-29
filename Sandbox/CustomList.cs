@@ -91,11 +91,15 @@ namespace UserList
                 capacity = (capacity * 2);
 
 
-                T[] temporaryArrary; 
-                temporaryArrary = items;
-                items = new T[capacity]; 
+                
+                T[] tempArray = new T[capacity];
+
+                for (int i = 0; i < count; i++)
+                {
+                    items[i] = tempArray[i];
+                }
+                items[count] = item;
                 count++;
-                capacity = 4;
 
             }
         }
