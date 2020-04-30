@@ -111,12 +111,17 @@ namespace UserList
 
         public bool Remove(T item)
         {
-            T[] tempArray = new T[capacity];
+           
             for(int i = 0; i < count; i++)
             {
+                if (item.Equals(items))
+                {
+                    count--;
+                    items[count] = item;
+                }
 
             }
-            
+            return false;
         }
     }
 }
