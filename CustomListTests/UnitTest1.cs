@@ -30,7 +30,7 @@ namespace CustomListTests
         {
             // arrange
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 10;
+            
             int expected = 1;
             int actual;
 
@@ -113,7 +113,7 @@ namespace CustomListTests
             CustomList<int> testList = new CustomList<int>();
             int itemToAdd = 3;
             int itemToAddTwo = 5;
-
+            int actual;
             int expected = 2;
 
             // act
@@ -171,19 +171,21 @@ namespace CustomListTests
 
             CustomList<int> testList = new CustomList<int>();
 
-            int itemToAdd;
+            int numAdd = 32;
             int expected = 6;
             int actual;
 
 
             // act
 
-            testList.Add(3);
-            testList.Add(5);
-            testList.Add(7);
-            testList.Add(9);
-            testList.Add(12);
-            testList.Add(32);
+            testList.Add(numAdd);
+            testList.Add(numAdd);
+            testList.Add(numAdd);
+            testList.Add(numAdd);
+            testList.Add(numAdd);
+            testList.Add(numAdd);
+
+
 
             actual = testList.Count;
 
@@ -202,7 +204,7 @@ namespace CustomListTests
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd;
+            
             int expected = 32;
             int actual;
 
@@ -214,7 +216,7 @@ namespace CustomListTests
             testList.Add(32);
             testList.Add(25);
 
-            actual = testList.index[1];
+            actual = testList.Count;
 
             // assert
 
