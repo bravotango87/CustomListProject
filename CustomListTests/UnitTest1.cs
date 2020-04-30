@@ -58,6 +58,7 @@ namespace CustomListTests
             CustomList<int> testList = new CustomList<int>();
             int itemToAdd = 5;
             int itemToAddTwo = 7;
+            int itemToAddThree = 9;
             int expected = 5;
             int actual;
 
@@ -65,6 +66,7 @@ namespace CustomListTests
             // act
             testList.Add(itemToAdd);
             testList.Add(itemToAddTwo);
+            testList.Add(itemToAddThree);
             actual = testList[0];
 
 
