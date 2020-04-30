@@ -30,12 +30,12 @@ namespace CustomListTests
         {
             // arrange
             CustomList<int> testList = new CustomList<int>();
-            
+            int itemToAdd = 10;
             int expected = 1;
             int actual;
 
             // act
-            testList.Add(10);
+            testList.Add(itemToAdd);
             actual = testList.Count;
 
             // assert
@@ -78,15 +78,16 @@ namespace CustomListTests
 
         [TestMethod]
 
-        public void Add_AddingMultipleValuesToEmptyCustomList_ValueOfThreeIndexStaysTheSame()
+        public void Add_AddingMultipleValuesToEmptyCustomList_ValueOfOneStaysTheSame()
         {
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 9;
+            int itemToAdd = 6;
             int itemToAddTwo = 2;
             int itemToAddThree = 4;
-            int expected = 4;
+           
+            int expected = 2;
             int actual;
 
 
@@ -95,7 +96,8 @@ namespace CustomListTests
             testList.Add(itemToAdd);
             testList.Add(itemToAddTwo);
             testList.Add(itemToAddThree);
-            actual = testList[2];
+           
+            actual = testList[1];
 
 
             // assert
@@ -150,7 +152,7 @@ namespace CustomListTests
             testList.Add(itemToAdd);
             testList.Add(itemToAdd);
             testList.Add(itemToAdd);
-            testList.Add(itemToAdd);
+           
 
             actual = testList.Capacity;
 
@@ -172,7 +174,7 @@ namespace CustomListTests
             CustomList<int> testList = new CustomList<int>();
 
             int numAdd = 32;
-            int expected = 6;
+            int expected = 5;
             int actual;
 
 
@@ -183,7 +185,7 @@ namespace CustomListTests
             testList.Add(numAdd);
             testList.Add(numAdd);
             testList.Add(numAdd);
-            testList.Add(numAdd);
+            
 
 
 

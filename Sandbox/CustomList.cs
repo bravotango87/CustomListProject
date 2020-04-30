@@ -14,8 +14,9 @@ namespace UserList
         private T[] items;
         private int capacity;
         private int count;
-        private int i;
         private int index;
+        private int i;
+
 
 
 
@@ -38,7 +39,7 @@ namespace UserList
         {
             get
             {
-                return count;
+                return capacity;
             }
         }
 
@@ -69,9 +70,10 @@ namespace UserList
         // constructor (SPAWNER)
         public CustomList()
         {
-            items = new T[capacity]; // array
+            
             count = 0;
             capacity = 4;
+            items = new T[capacity]; // array
         }
 
 
