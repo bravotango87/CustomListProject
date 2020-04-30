@@ -175,18 +175,18 @@ namespace CustomListTests
 
             CustomList<int> testList = new CustomList<int>();
 
-            int numAdd = 32;
+            int itemToAdd = 32;
             int expected = 5;
             int actual;
 
 
             // act
 
-            testList.Add(numAdd);
-            testList.Add(numAdd);
-            testList.Add(numAdd);
-            testList.Add(numAdd);
-            testList.Add(numAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
             
 
 
@@ -208,17 +208,17 @@ namespace CustomListTests
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
-            
-            int expected = 32;
+            int itemToAdd = 32;
+            int expected = 5;
             int actual;
 
             // act
 
-            testList.Add(24);
-            testList.Add(32);
-            testList.Add(20);
-            testList.Add(32);
-            testList.Add(25);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
 
             actual = testList.Count;
 
@@ -238,10 +238,8 @@ namespace CustomListTests
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 5;
-            int itemToAddTwo = 7;
-            int itemToAddThree = 8;
-            int expected = 7;
+            int itemToAdd = 32;
+            int expected = 32;
             int actual;
 
 
@@ -250,8 +248,9 @@ namespace CustomListTests
             // act
 
             testList.Add(itemToAdd);
-            testList.Add(itemToAddTwo);
-            testList.Add(itemToAddThree);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
             testList.Remove(itemToAdd);
 
             actual = testList[0];
