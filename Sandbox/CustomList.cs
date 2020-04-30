@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UserList;
 
 namespace UserList
 {
@@ -102,8 +103,27 @@ namespace UserList
                 count++;
 
             }
+
+        }
+
+
+        // remove an object from an instance of my custom-built list class by imitating the C# Remove() method.
+
+        public bool Remove(T item)
+        {
+            T[] tempArray = new T[capacity];
+            for(int i = 0; i < count; i++)
+            {
+
+            }
+            
         }
     }
 }
-     
+
+
        
+
+
+       
+
