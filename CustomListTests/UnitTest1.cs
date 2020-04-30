@@ -398,15 +398,51 @@ namespace CustomListTests
 
             Assert.AreEqual(expected, actual);
 
-
-
-
-
-
-
-
         }
+
+        // The remove method is used to remove a value from a list. We pass in the value we want to remove. 
+        // If there are duplicate values that match what we are trying to remove, the remove method should only remove the first on it finds
+
+        [TestMethod]
+        public void Remove_RemovingDuplicateStringsFromCustomList_ValueOfTwoIndexStaysTheSame()
+        {
+            // arrange
+            CustomList<string> testList = new CustomList<string>(); // Creating a list that holds strings
+
+            string expected = "Moon";
+            string actual;
+
+            // act
+            testList.Add("Moon");
+            testList.Add("Sun");		// Adding the value "Sun"
+            testList.Add("Moon");		// Adding the value "Moon"
+            testList.Add("Earth");		// Adding the value "Earth" 
+            testList.Add("Moon");       // Adding the value "Moon" for the second time
+
+            // Currently our list holds the values: "Sun", "Moon", "Earth", "Moon"
+            // Currently our list has a count of: 4
+
+            testList.Remove("Moon");    // Calling the Remove method to remove the first "Moon" in the list
+
+            // Assuming the remove method worked we expect:
+           
+        
+
+            actual = testList[2]; // Grabbing the value at index 2, which now should be "Moon"
+
+            // assert
+            Assert.AreEqual(expected, actual);
+        }
+
+
+
+
+
+
+
 
     }
 
-}
+    }
+
+
