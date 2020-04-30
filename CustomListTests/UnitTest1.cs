@@ -115,16 +115,19 @@ namespace CustomListTests
             // arrange 
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 3;
-            int itemToAddTwo = 5;
+            int itemToAdd = 32;
+            int expected = 8;
             int actual;
-            int expected = 2;
+
+
 
             // act
-
             testList.Add(itemToAdd);
-            testList.Add(itemToAddTwo);
-            actual = testList.Count;
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            actual = testList.Capacity;
 
             // assert
 
@@ -268,31 +271,27 @@ namespace CustomListTests
 
         [TestMethod]
 
-        public void Remove_RemovingOneValueToEmptyCustomList_CountOfCustomListDecrease()
+        public void Remove_RemovingOneValueToEmptyCustomList_CountDecrease()
         {
             // arrange
 
             CustomList<int> testList = new CustomList<int>();
-            int itemToAdd = 10;
-            int itemToAddTwo = 12;
-            int itemToAddThree = 32;
-            int itemToAddFour = 45;
-
+            int itemToAdd = 32;
             int expected = 3;
             int actual;
 
 
-
-
             // act
 
+
+            
             testList.Add(itemToAdd);
-            testList.Add(itemToAddTwo);
-            testList.Add(itemToAddThree);
-            testList.Add(itemToAddFour);
-            testList.Remove(itemToAddThree);
+            testList.Add(itemToAdd);
+            testList.Add(itemToAdd);
+            testList.Remove(itemToAdd);
 
             actual = testList.Count;
+
 
             // assert
 
