@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Syncfusion.Licensing.crypto;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +9,7 @@ using UserList;
 
 namespace UserList
 {
-    public class CustomList<T> //generic class
+    public class CustomList<T> : IEnumerable //generic class
     {
         // member variables (HAS A)
 
@@ -17,6 +19,14 @@ namespace UserList
         private int index;
         private int i;
 
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < count; i++)
+            {
+                yield return items[i];
+            }
+        }
+      
 
 
 
@@ -127,14 +137,16 @@ namespace UserList
             return false;
         }
 
+
+
         // override ToString
 
-        public override string ToString()
-        {
+        //public override string ToString()
+       // {
             
         }
     }
-}
+//}
 
 
        
