@@ -144,7 +144,7 @@ namespace UserList
 
         public override string ToString()
         {
-            string value;
+            string value = "";
             for (int i = 0; i < count; i++)
             {
                 
