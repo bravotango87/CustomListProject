@@ -1,4 +1,5 @@
-﻿using Syncfusion.Licensing.crypto;
+﻿using DocumentFormat.OpenXml.Office2013.PowerPoint.Roaming;
+using Syncfusion.Licensing.crypto;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -141,12 +142,17 @@ namespace UserList
 
         // override ToString
 
-        //public override string ToString()
-       // {
-            
+        public override string ToString()
+        {
+            string value;
+            for (int i = 0; i < count; i++)
+            {
+                
+            }
+            return value;
         }
     }
-//}
+}
 
 
        
