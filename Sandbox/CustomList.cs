@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Office2013.PowerPoint.Roaming;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Syncfusion.Licensing.crypto;
 using System;
 using System.Collections;
@@ -27,7 +28,7 @@ namespace UserList
                 yield return items[i];
             }
         }
-      
+
 
 
 
@@ -81,7 +82,7 @@ namespace UserList
         // constructor (SPAWNER)
         public CustomList()
         {
-            
+
             count = 0;
             capacity = 4;
             items = new T[capacity]; // array
@@ -91,7 +92,7 @@ namespace UserList
 
         // member methods (CAN DO) based of [TestMethod]s
 
-       
+
         // add an object to an instance of custom-built list class by imitating the C# Add() method.
 
         public void Add(T item)
@@ -114,49 +115,113 @@ namespace UserList
                 items = tempArray;
                 items[count] = item;
                 count++;
-                
+
 
             }
 
         }
 
 
-        // remove an object from an instance of my custom-built list class by imitating the C# Remove() method.
+        // remove an object from an instance of my custom-built list class by imitating the C# Remove(/) method.
 
         public bool Remove(T item)
         {
-           
-            for(int i = 0; i < count; i++)
+            bool shiftValue = false;
+
+            for (int i = 0; i < count; i++)
             {
-                if (item.Equals(items))
+                if (item.Equals(items[i]))
                 {
                     count--;
-                    items[count] = item;
+                    items[i] = items[i + 1];
+                    shiftValue = true;
+
+                }
+
+                else if (shiftValue == true)
+                {
+                    items[i] = items[i + 1];
                 }
 
             }
-            return false;
+            return shiftValue;
         }
 
-           
+
 
         // override ToString
 
         public override string ToString()
         {
-            string value = "";
+            string result = "";
             for (int i = 0; i < count; i++)
             {
-                
+                result += items[i].ToString();
             }
-            return value;
+            return result;
+        }
+
+        // overload the + operator
+
+        public static CustomList<T> operator +(CustomList<T> a, CustomList<T> b)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for (int i = 0; i < a.count; i++)
+            {
+                newList.Add(a[i]);
+            }
+            for (int i = 0; i < b.count; i++)
+            {
+                newList.Add(b[i]);
+            }
+
+            return newList;
+        }
+
+        // Overload the – operator, so that I can subtract one instance
+
+        public static CustomList<T> operator -(CustomList<T> a, CustomList<T> b)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for (int i = 0; i < a.count; i++)
+            {
+                for (int j = 0; j < b.count; j++)
+                {
+                    if (a[i].Equals(b[j]))
+                    {
+                        a.Remove(a[i]);
+                        b.Remove(b[j]);
+                    }
+
+                }
+            }
+            newList = a + b;
+
+            return newList;
+        }
+
+        // Zip two custom list class instances together in the form of a zipper
+
+        public CustomList<T> Zip(CustomList<T> list1, CustomList<T> list2)
+        {
+            CustomList<T> newList = new CustomList<T>();
+            for (int i = 0; i < list1.count; i++)
+            {
+                newList.Add(list1[i]);
+                newList.Add(list2[i]);
+            }
+            return newList;
         }
     }
+
+   
+
+    
 }
 
 
-       
 
 
-       
+
+
 

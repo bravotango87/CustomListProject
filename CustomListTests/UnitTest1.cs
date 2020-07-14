@@ -290,7 +290,7 @@ namespace CustomListTests
             testList.Add(itemToAdd);
             testList.Remove(itemToAdd);
 
-            actual = testList.Count;
+            actual = testList[1];
 
 
             // assert
@@ -348,7 +348,7 @@ namespace CustomListTests
             int itemToAddTwo = 8;
             int itemToAddThree = 9;
             int expected = 8;
-            int actual;
+            
 
             // act
 
@@ -356,7 +356,7 @@ namespace CustomListTests
             testList.Add(itemToAddTwo);
             testList.Add(itemToAddThree);
             testList.Remove(itemToAdd);
-            actual = testList[1];
+            int actual = testList[1];
 
             // assert
 
